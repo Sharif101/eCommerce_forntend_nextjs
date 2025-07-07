@@ -2,7 +2,8 @@ import Landing from "@/component/Landing/Landing";
 import { handleFetch } from "@/hooks/useRequest";
 
 export default async function Home() {
-  const products = await handleFetch("shop/products");
+  const res = await handleFetch("shop/products");
+  const products = res?.data?.products || res || [];
 
   return (
     <div>
